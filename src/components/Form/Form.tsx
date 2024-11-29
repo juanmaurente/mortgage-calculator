@@ -1,6 +1,7 @@
-import LinkComponent from './form-components/LinkComponent.tsx/LinkComponent';
+import LinkComponent from './form-components/LinkComponent/LinkComponent';
 import styles from './Form.module.css';
 import { useForm, SubmitHandler } from 'react-hook-form';
+import { DevTool } from '@hookform/devtools';
 
 type Inputs = {
 	amount: number;
@@ -11,10 +12,15 @@ type Inputs = {
 const Form = () => {
 	const {
 		register,
+		control,
+		reset,
 		handleSubmit,
 		watch,
 		formState: { errors },
 	} = useForm<Inputs>();
+
+	const { name, ref, onChange, onBlur } = register('amount');
+
 	const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
 
 	console.log(watch('example')); // watch input value by passing the name of it
@@ -23,7 +29,7 @@ const Form = () => {
 		<div className={styles.container}>
 			<div className={styles.heading}>
 				<h3>Mortgage Calculator</h3>
-				<LinkComponent />
+				<LinkComponent reset={reset} />
 			</div>
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<label htmlFor='amount'>Mortgage Amount</label>
@@ -69,6 +75,7 @@ const Form = () => {
 					Calculate Repayments
 				</button>
 			</form>
+			<DevTool control={control} />
 		</div>
 	);
 };

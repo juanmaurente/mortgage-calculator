@@ -1,3 +1,4 @@
+import LinkComponent from './form-components/LinkComponent.tsx/LinkComponent';
 import styles from './Form.module.css';
 import { useForm, SubmitHandler } from 'react-hook-form';
 
@@ -20,9 +21,11 @@ const Form = () => {
 
 	return (
 		<div className={styles.container}>
-			<h3>Mortgage Calculator</h3>
+			<div className={styles.heading}>
+				<h3>Mortgage Calculator</h3>
+				<LinkComponent />
+			</div>
 			<form onSubmit={handleSubmit(onSubmit)}>
-				<button className={styles.clearButton}>Clear All</button>
 				<label htmlFor='amount'>Mortgage Amount</label>
 				<div className={styles.inputBox}>
 					<span className={styles.leftPlaceholder}>$</span>
@@ -62,7 +65,9 @@ const Form = () => {
 					/>
 					<label htmlFor='InterestOnly'>Interest Only</label>
 				</div>
-				<button>Calculate Repayments</button>
+				<button className={styles.submitButton}>
+					Calculate Repayments
+				</button>
 			</form>
 		</div>
 	);

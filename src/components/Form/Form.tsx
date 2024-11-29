@@ -19,25 +19,32 @@ const Form = () => {
 	console.log(watch('example')); // watch input value by passing the name of it
 
 	return (
-		<div>
-			<div className={styles.container}>
-				<h3>Mortgage Calculator</h3>
-				<form onSubmit={handleSubmit(onSubmit)}>
-					<button>Clear All</button>
-					<label htmlFor='amount'>Mortgage Amount</label>
+		<div className={styles.container}>
+			<h3>Mortgage Calculator</h3>
+			<form onSubmit={handleSubmit(onSubmit)}>
+				<button className={styles.clearButton}>Clear All</button>
+				<label htmlFor='amount'>Mortgage Amount</label>
+				<div className={styles.inputBox}>
+					<span className={styles.leftPlaceholder}>$</span>
 					<input type='number' {...register('amount')} id='amount' />
+				</div>
 
-					<label htmlFor='term'>Mortgage Term</label>
+				<label htmlFor='term'>Mortgage Term</label>
+				<div className={styles.inputBox}>
 					<input type='number' {...register('term')} id='term' />
-
-					<label htmlFor='interestRate'>Interest Rate</label>
+					<span className={styles.rightPlaceholder}>years</span>
+				</div>
+				<label htmlFor='interestRate'>Interest Rate</label>
+				<div className={styles.inputBox}>
 					<input
 						type='number'
 						{...register('interestRate')}
 						id='interest'
 					/>
-
-					<label htmlFor='mortgageType'>Mortgage Type</label>
+					<span className={styles.rightPlaceholder}>%</span>
+				</div>
+				<label htmlFor='mortgageType'>Mortgage Type</label>
+				<div>
 					<input
 						type='radio'
 						name='mortgageType'
@@ -45,7 +52,8 @@ const Form = () => {
 						value='Repayment'
 					/>
 					<label htmlFor='Repayment'>Repayment</label>
-
+				</div>
+				<div>
 					<input
 						type='radio'
 						name='mortgageType'
@@ -53,10 +61,9 @@ const Form = () => {
 						value='InterestOnly'
 					/>
 					<label htmlFor='InterestOnly'>Interest Only</label>
-
-					<button>Calculate Repayments</button>
-				</form>
-			</div>
+				</div>
+				<button>Calculate Repayments</button>
+			</form>
 		</div>
 	);
 };

@@ -1,0 +1,54 @@
+.container {
+	width: 100%;
+}
+
+.container > form {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.inputBox {
+	position: relative;
+	display: inline-block;
+	width: fit-content;
+	background-color: blue;
+}
+
+.inputBox input {
+	padding-right: 40px; /* Espacio para el texto a la derecha */
+	height: 40px;
+	font-size: 16px;
+	box-sizing: border-box;
+}
+
+.inputBox .leftPlaceholder {
+	position: absolute;
+	left: 0px; /* Ajusta la posición del texto fijo */
+	top: 50%;
+	transform: translateY(-50%);
+	padding: 9px;
+	font-size: 16px;
+	color: #555;
+	background-color: yellow;
+	pointer-events: none; /* El texto no interferirá con la interacción del input */
+}
+
+.inputBox .rightPlaceholder {
+	position: absolute;
+	right: 0px; /* Ajusta la posición del texto fijo */
+	top: 50%;
+	transform: translateY(-50%);
+	padding: 9px;
+	font-size: 16px;
+	color: #555;
+	background-color: yellow;
+	pointer-events: none; /* El texto no interferirá con la interacción del input */
+}
+
+.clearButton {
+	background-color: none;
+	border: none;
+	width: fit-content;
+	margin: 15px 0;
+}

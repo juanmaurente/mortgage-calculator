@@ -2,6 +2,7 @@ import LinkComponent from './form-components/LinkComponent/LinkComponent';
 import styles from './Form.module.css';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { DevTool } from '@hookform/devtools';
+import ButtonComponent from './form-components/ButtonComponent/ButtonComponent';
 
 type Inputs = {
 	amount: number;
@@ -71,9 +72,7 @@ const Form = () => {
 					/>
 					<label htmlFor='InterestOnly'>Interest Only</label>
 				</div>
-				<button className={styles.submitButton}>
-					Calculate Repayments
-				</button>
+				<ButtonComponent />
 			</form>
 			<DevTool control={control} />
 		</div>

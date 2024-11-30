@@ -4,7 +4,9 @@ import Form from './components/Form/Form';
 function App() {
 	return (
 		<>
-			<Form />
+			<div className='container'>
+				<Form />
+			</div>
 		</>
 	);
 }

@@ -17,9 +17,8 @@
 	font-size: 24px;
 	line-height: 125%;
 	letter-spacing: -1px;
-	color: #133041;
-	padding: 0;
-	margin: 0;
+	color: var(--color-slate-900);
+	margin-bottom: 8px;
 }
 
 .heading button {

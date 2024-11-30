@@ -3,6 +3,7 @@ import styles from './Form.module.css';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { DevTool } from '@hookform/devtools';
 import ButtonComponent from './form-components/ButtonComponent/ButtonComponent';
+import NumberInput from './form-components/NumberInput/NumberInput';
 
 type Inputs = {
 	amount: number;
@@ -29,30 +30,30 @@ const Form = () => {
 	return (
 		<div className={styles.container}>
 			<div className={styles.heading}>
-				<h3>Mortgage Calculator</h3>
+				<h3 className={`${styles.header} text-preset-2`}>
+					Mortgage Calculator
+				</h3>
 				<LinkComponent reset={reset} />
 			</div>
 			<form onSubmit={handleSubmit(onSubmit)}>
-				<label htmlFor='amount'>Mortgage Amount</label>
-				<div className={styles.inputBox}>
-					<span className={styles.leftPlaceholder}>$</span>
-					<input type='number' {...register('amount')} id='amount' />
-				</div>
-
-				<label htmlFor='term'>Mortgage Term</label>
-				<div className={styles.inputBox}>
-					<input type='number' {...register('term')} id='term' />
-					<span className={styles.rightPlaceholder}>years</span>
-				</div>
-				<label htmlFor='interestRate'>Interest Rate</label>
-				<div className={styles.inputBox}>
-					<input
-						type='number'
-						{...register('interestRate')}
-						id='interest'
-					/>
-					<span className={styles.rightPlaceholder}>%</span>
-				</div>
+				<NumberInput
+					label={'Mortgage Amount'}
+					id={'amount'}
+					inputPrefix={'$'}
+					register={register}
+				/>
+				<NumberInput
+					label={'Mortgage Term'}
+					id={'term'}
+					register={register}
+					inputSuffix={'years'}
+				/>
+				<NumberInput
+					label={'Interest Rate'}
+					id={'interest'}
+					register={register}
+					inputSuffix={'%'}
+				/>
 				<label htmlFor='mortgageType'>Mortgage Type</label>
 				<div>
 					<input

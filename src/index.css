@@ -79,3 +79,10 @@ body {
 .spacing-100 {
 	padding: 8px;
 }
+
+.container {
+	margin: 0 auto;
+	max-width: 1100px;
+	display: flex;
+	justify-content: center;
+}

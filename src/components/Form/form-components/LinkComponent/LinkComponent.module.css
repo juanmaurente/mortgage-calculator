@@ -2,6 +2,7 @@
 	text-decoration: underline;
 	color: var(--color-slate-700);
 	transition: all 0.3s ease-in-out;
+	margin-bottom: 12px;
 }
 
 .clearLink:hover {

@@ -1,79 +1,11 @@
 .container {
 	width: 100%;
-	height: 100vh; /* Ocupa toda la altura de la pantalla */
-	margin: 0 auto;
-	padding: 24px 32px;
-}
-
-.container > form {
-	min-width: 375px;
 	height: fit-content;
-	display: flex;
-	flex-direction: column;
+	margin: 0 auto;
+	padding: 32px;
+	background-color: var(--color-white);
 }
 
-.heading h3 {
-	font-weight: 900;
-	font-size: 24px;
-	line-height: 125%;
-	letter-spacing: -1px;
+.header {
 	color: var(--color-slate-900);
-	margin-bottom: 8px;
-}
-
-.heading button {
-	background-color: none;
-}
-.inputBox {
-	position: relative;
-	display: inline-block;
-	width: fit-content;
-	background-color: blue;
-}
-
-.inputBox input {
-	padding-right: 40px; /* Espacio para el texto a la derecha */
-	height: 40px;
-	font-size: 16px;
-	box-sizing: border-box;
-}
-
-.inputBox .leftPlaceholder {
-	position: absolute;
-	left: 0px; /* Ajusta la posición del texto fijo */
-	top: 50%;
-	transform: translateY(-50%);
-	padding: 9px;
-	font-size: 16px;
-	color: #555;
-	background-color: yellow;
-	pointer-events: none; /* El texto no interferirá con la interacción del input */
-}
-
-.inputBox .rightPlaceholder {
-	position: absolute;
-	right: 0px; /* Ajusta la posición del texto fijo */
-	top: 50%;
-	transform: translateY(-50%);
-	padding: 9px;
-	font-size: 16px;
-	color: #555;
-	background-color: yellow;
-	pointer-events: none; /* El texto no interferirá con la interacción del input */
-}
-
-.clearButton {
-	background-color: none;
-	border: none;
-	width: fit-content;
-	margin: 15px 0;
-	color: #4e6e7e;
-	font-size: 16px;
-}
-
-.submitButton {
-	background-color: yellow;
-	border: none;
-	width: fit-content;
-	margin: 15px 0;
 }

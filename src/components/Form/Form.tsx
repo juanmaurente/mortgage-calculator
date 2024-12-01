@@ -4,6 +4,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { DevTool } from '@hookform/devtools';
 import ButtonComponent from './form-components/ButtonComponent/ButtonComponent';
 import NumberInput from './form-components/NumberInput/NumberInput';
+import RadioButton from './form-components/RadioButton/RadioButton';
 
 type Inputs = {
 	amount: number;
@@ -54,25 +55,7 @@ const Form = () => {
 					register={register}
 					inputSuffix={'%'}
 				/>
-				<label htmlFor='mortgageType'>Mortgage Type</label>
-				<div>
-					<input
-						type='radio'
-						name='mortgageType'
-						id='Repayment'
-						value='Repayment'
-					/>
-					<label htmlFor='Repayment'>Repayment</label>
-				</div>
-				<div>
-					<input
-						type='radio'
-						name='mortgageType'
-						id='InterestOnly'
-						value='InterestOnly'
-					/>
-					<label htmlFor='InterestOnly'>Interest Only</label>
-				</div>
+				<RadioButton />
 				<ButtonComponent />
 			</form>
 			<DevTool control={control} />

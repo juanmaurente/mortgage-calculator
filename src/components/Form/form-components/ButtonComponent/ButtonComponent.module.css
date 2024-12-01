@@ -4,14 +4,20 @@
 	padding: 0px 40px;
 	border-radius: 999px;
 	border: 0;
-	width: fit-content;
+	width: 424px;
 	height: 56px;
 	display: flex;
 	align-items: center;
+	justify-content: center;
 }
 
 .button:hover {
 	opacity: 50%;
+	color: var(--color-slate-900);
+	cursor: pointer;
+}
+
+.button:active {
 	color: var(--color-slate-900);
 	cursor: pointer;
 }

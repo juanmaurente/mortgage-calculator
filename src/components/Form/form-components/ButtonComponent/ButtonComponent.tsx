@@ -6,7 +6,7 @@ const ButtonComponent = () => {
 		<div>
 			<button className={`${styles.button} text-preset-3 `}>
 				<Icon icon='mdi:calculator' className={styles.calculator} />
-				Placeholder
+				Calculate Repayments
 			</button>
 		</div>
 	);

@@ -22,21 +22,21 @@ body {
 }
 
 .text-preset-1 {
-	font-weight: bold;
+	font-weight: 700;
 	font-size: 56px;
 	line-height: 125%;
 	letter-spacing: -1px;
 }
 
 .text-preset-2 {
-	font-weight: bold;
+	font-weight: 700;
 	font-size: 24px;
 	line-height: 125%;
 	letter-spacing: -1px;
 }
 
 .text-preset-3 {
-	font-weight: bold;
+	font-weight: 600;
 	font-size: 18px;
 	line-height: 125%;
 	letter-spacing: -1px;
@@ -50,7 +50,7 @@ body {
 }
 
 .text-preset-5 {
-	font-weight: 500;
+	font-weight: 400;
 	font-size: 14px;
 	line-height: 150%;
 	letter-spacing: 0px;
@@ -80,9 +80,10 @@ body {
 	padding: 8px;
 }
 
-.container {
+.containerWrapper {
 	margin: 0 auto;
+	width: fit-content;
+	height: 100%;
+	overflow-y: scroll;
 	max-width: 1100px;
-	display: flex;
-	justify-content: center;
 }

@@ -4,7 +4,7 @@ import Form from './components/Form/Form';
 function App() {
 	return (
 		<>
-			<div className='container'>
+			<div className='containerWrapper'>
 				<Form />
 			</div>
 		</>

@@ -29,6 +29,7 @@
 	display: block;
 	border-top: 4px solid var(--color-lime);
 	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
 	padding: 16px 8px;
 	background-color: #09202d;
 }
@@ -45,4 +46,18 @@
 
 .totalWrapper p {
 	padding-bottom: 8px;
+}
+
+@media screen and (min-width: 768px) {
+	.resultsWrapper {
+		width: 100%;
+		padding: 24px;
+		margin-top: 24px;
+		border-radius: 8px;
+	}
+
+	.resultsContainer > p {
+		max-width: 65ch;
+		text-wrap: wrap;
+	}
 }

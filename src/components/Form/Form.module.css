@@ -1,4 +1,4 @@
-.container {
+.sectionWrapper {
 	width: 100%;
 	height: fit-content;
 	margin: 0 auto;
@@ -8,4 +8,43 @@
 
 .header {
 	color: var(--color-slate-900);
+}
+
+@media screen and (min-width: 768px) {
+	.sectionWrapper {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.heading {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		grid-column: 1/3;
+	}
+
+	.formContainer {
+		grid-column: 1/3;
+	}
+
+	form {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 24px;
+	}
+	.amount {
+		grid-column: 1/3;
+	}
+
+	.term {
+		grid-column: 1/2;
+	}
+
+	.interest {
+		grid-column: 2/3;
+	}
+
+	.type {
+		grid-column: 1/3;
+	}
 }

@@ -20,35 +20,45 @@ const Form = ({ handleSubmit }: Props) => {
 	const { register, control, reset } = useForm<Inputs>();
 
 	return (
-		<div className={styles.container}>
+		<div className={styles.sectionWrapper}>
 			<div className={styles.heading}>
 				<h3 className={`${styles.header} text-preset-2`}>
 					Mortgage Calculator
 				</h3>
 				<LinkComponent reset={reset} />
 			</div>
-			<form onSubmit={handleSubmit}>
-				<NumberInput
-					label={'Mortgage Amount'}
-					id={'amount'}
-					inputPrefix={'$'}
-					register={register}
-				/>
-				<NumberInput
-					label={'Mortgage Term'}
-					id={'term'}
-					register={register}
-					inputSuffix={'years'}
-				/>
-				<NumberInput
-					label={'Interest Rate'}
-					id={'interest'}
-					register={register}
-					inputSuffix={'%'}
-				/>
-				<RadioButton />
-				<ButtonComponent />
-			</form>
+			<div className={styles.formContainer}>
+				<form onSubmit={handleSubmit}>
+					<div className={styles.amount}>
+						<NumberInput
+							label={'Mortgage Amount'}
+							id={'amount'}
+							inputPrefix={'$'}
+							register={register}
+						/>
+					</div>
+					<div className={styles.term}>
+						<NumberInput
+							label={'Mortgage Term'}
+							id={'term'}
+							register={register}
+							inputSuffix={'years'}
+						/>
+					</div>
+					<div className={styles.interest}>
+						<NumberInput
+							label={'Interest Rate'}
+							id={'interest'}
+							register={register}
+							inputSuffix={'%'}
+						/>
+					</div>
+					<div className={styles.type}>
+						<RadioButton />
+					</div>
+					<ButtonComponent />
+				</form>
+			</div>
 			<DevTool control={control} />
 		</div>
 	);

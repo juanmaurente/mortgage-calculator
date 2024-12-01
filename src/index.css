@@ -88,3 +88,16 @@ body {
 	overflow-y: scroll;
 	max-width: 375px;
 }
+
+@media screen and (min-width: 768px) {
+	body {
+		background-color: var(--color-slate-100);
+	}
+
+	.containerWrapper {
+		max-width: 768px;
+		margin: 40px auto;
+		border-radius: 24px;
+		overflow: hidden;
+	}
+}

@@ -12,21 +12,12 @@ type Inputs = {
 	interestRate: number;
 };
 
-const Form = () => {
-	const {
-		register,
-		control,
-		reset,
-		handleSubmit,
-		watch,
-		formState: { errors },
-	} = useForm<Inputs>();
+interface Props {
+	handleSubmit: () => void;
+}
 
-	const { name, ref, onChange, onBlur } = register('amount');
-
-	const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
-
-	console.log(watch('example')); // watch input value by passing the name of it
+const Form = ({ handleSubmit }: Props) => {
+	const { register, control, reset } = useForm<Inputs>();
 
 	return (
 		<div className={styles.container}>
@@ -36,7 +27,7 @@ const Form = () => {
 				</h3>
 				<LinkComponent reset={reset} />
 			</div>
-			<form onSubmit={handleSubmit(onSubmit)}>
+			<form onSubmit={handleSubmit}>
 				<NumberInput
 					label={'Mortgage Amount'}
 					id={'amount'}

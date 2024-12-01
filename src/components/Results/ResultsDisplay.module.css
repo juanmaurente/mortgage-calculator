@@ -12,6 +12,37 @@
 	gap: 16px;
 }
 
+.resultsContainerTrue {
+	justify-content: start;
+}
+
 .resultsContainer p {
 	color: var(--color-slate-300);
+}
+
+.displayResults {
+	text-align: left;
+	align-items: start;
+}
+
+.resultsWrapper {
+	display: block;
+	border-top: 4px solid var(--color-lime);
+	border-top-left-radius: 8px;
+	padding: 16px 8px;
+	background-color: #09202d;
+}
+
+.monthlyAmmount {
+	color: var(--color-lime);
+	padding: 8px 0px;
+	border-bottom: 1px solid #e4f4fd24;
+}
+
+.totalWrapper {
+	margin-top: 16px;
+}
+
+.totalWrapper p {
+	padding-bottom: 8px;
 }

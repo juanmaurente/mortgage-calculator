@@ -23,3 +23,8 @@
 	color: var(--color-slate-700);
 	padding-left: 8px;
 }
+
+.inputBox:hover {
+	opacity: 50%;
+	background-color: var(--color-lime);
+}

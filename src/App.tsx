@@ -4,7 +4,7 @@ import Form from './components/Form/Form';
 import ResultsDisplay from './components/Results/ResultsDisplay';
 
 function App() {
-	const [resultsPending, setResultsPending] = useState(true);
+	const [resultsPending, setResultsPending] = useState(false);
 
 	const handleForm = () => {
 		setResultsPending(!resultsPending);

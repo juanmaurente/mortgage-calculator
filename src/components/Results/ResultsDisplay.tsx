@@ -1,32 +1,34 @@
 import styles from './ResultsDisplay.module.css';
-
 interface Props {
-	resultsPending: boolean;
+	results: {
+		monthlyRepayments: string | null;
+		totalPayments: string | null;
+	};
 }
 
-const ResultsDisplay = ({ resultsPending }: Props) => {
-	return resultsPending ? (
+const ResultsDisplay = ({ results }: Props) => {
+	console.log(results); // Check the results passed here
+	return results ? (
 		<div className={`${styles.resultsContainer} ${styles.displayResults}`}>
-			<h3 className={`text-preset-3`}> Your results</h3>
+			<h3 className={`text-preset-3`}>Your results</h3>
 			<p className={`text-preset-5`}>
 				Your results are shown below based on the information you
 				provided. To adjust the results, edit the form and click
 				"calculate repayments" again.
 			</p>
-
 			<div className={styles.resultsWrapper}>
 				<div className={styles.monthlyResults}>
 					<p className={`text-preset-5`}>Your monthly repayments</p>
 					<h2 className={`${styles.monthlyAmmount} text-preset-1`}>
-						$1,797.74
+						{results.monthlyRepayments}
 					</h2>
 				</div>
 				<div className={styles.totalWrapper}>
 					<p className={`text-preset-5`}>
-						Total you'll repay over the therm
+						Total you'll repay over the term
 					</p>
-					<h3 className={`${styles.monthlyAmmount}text-preset-2`}>
-						$539,322.94
+					<h3 className={`${styles.monthlyAmmount} text-preset-2`}>
+						{results.totalPayments}
 					</h3>
 				</div>
 			</div>

@@ -27,4 +27,5 @@
 .inputBox:hover {
 	opacity: 50%;
 	background-color: var(--color-lime);
+	cursor: pointer;
 }

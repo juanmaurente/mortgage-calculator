@@ -1,23 +1,27 @@
 import LinkComponent from './form-components/LinkComponent/LinkComponent';
 import styles from './Form.module.css';
-import { useForm, SubmitHandler } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { DevTool } from '@hookform/devtools';
 import ButtonComponent from './form-components/ButtonComponent/ButtonComponent';
 import NumberInput from './form-components/NumberInput/NumberInput';
 import RadioButton from './form-components/RadioButton/RadioButton';
 
 type Inputs = {
-	amount: number;
-	term: number;
-	interestRate: number;
+	amount: string;
+	term: string;
+	interestRate: string;
 };
 
 interface Props {
-	handleSubmit: () => void;
+	handleFormSubmit: (data: Inputs) => void;
 }
 
-const Form = ({ handleSubmit }: Props) => {
-	const { register, control, reset } = useForm<Inputs>();
+const Form = ({ handleFormSubmit }: Props) => {
+	const { register, control, handleSubmit, reset } = useForm<Inputs>();
+
+	const onSubmit = (data: Inputs) => {
+		handleFormSubmit(data); // Pasa los datos al App
+	};
 
 	return (
 		<div className={styles.sectionWrapper}>
@@ -28,7 +32,7 @@ const Form = ({ handleSubmit }: Props) => {
 				<LinkComponent reset={reset} />
 			</div>
 			<div className={styles.formContainer}>
-				<form onSubmit={handleSubmit}>
+				<form onSubmit={handleSubmit(onSubmit)}>
 					<div className={styles.amount}>
 						<NumberInput
 							label={'Mortgage Amount'}

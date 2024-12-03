@@ -1,24 +1,66 @@
+import { useState } from 'react';
 import styles from './NumberInput.module.css';
+import { UseFormRegister } from 'react-hook-form';
 
 type NumberInputProps = {
-	label: string; // Etiqueta para el input
-	id: string; // ID único para el input
-	placeholder?: string; // Placeholder opcional
-	register: any; // Función register de React Hook Form
-	error?: string; // Error relacionado al campo, si existe
-	inputPrefix?: string; // Texto a la izquierda del input
-	inputSuffix?: string; // Texto a la derecha del input
+	label: string;
+	id: string;
+	placeholder?: string;
+	error?: string;
+	inputPrefix?: string;
+	inputSuffix?: string;
+	register: UseFormRegister<any>;
 };
 
 const NumberInput = ({
 	label,
 	id,
 	placeholder,
-	register,
 	error,
 	inputPrefix,
 	inputSuffix,
+	register,
 }: NumberInputProps) => {
+	const [value, setValue] = useState('');
+
+	// Función para formatear el número con separadores de miles y dos decimales
+	const formatNumber = (input: string) => {
+		if (!input) {
+			return '';
+		}
+		// Eliminar todos los caracteres no numéricos excepto punto
+		let cleanedValue = '';
+		for (let i = 0; i < input.length; i++) {
+			const char = input[i];
+			// Solo permitir números y punto como decimal
+			if (char >= '0' && char <= '9') {
+				cleanedValue += char;
+			}
+		}
+
+		// Dividir en parte entera y decimal
+		let [integerPart] = cleanedValue.split('.');
+
+		// Si hay parte entera, agregar separadores de miles
+		if (integerPart) {
+			integerPart = parseInt(integerPart).toLocaleString();
+		}
+
+		// Devolver el número formateado
+		return `${integerPart}`;
+	};
+
+	// Manejador de evento de cambio de valor
+	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		const inputValue = e.target.value;
+		const formattedValue = formatNumber(inputValue);
+
+		// Update state only if formatted value is different
+		if (formattedValue !== value) {
+			setValue(formattedValue);
+		}
+	};
+
 	return (
 		<div className={styles.inputGroup}>
 			<label htmlFor={id} className={`${styles.label} text-preset-4`}>
@@ -31,10 +73,12 @@ const NumberInput = ({
 					</span>
 				)}
 				<input
-					type='string'
+					type='text'
 					id={id}
-					placeholder={placeholder}
 					{...register(id)}
+					placeholder={placeholder}
+					value={value}
+					onChange={handleChange}
 					className={`${styles.input} ${error ? styles.error : ''}`}
 				/>
 				{inputSuffix && (
